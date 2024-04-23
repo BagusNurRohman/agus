@@ -99,6 +99,12 @@ class PhotosTable extends Table
             ->integer('album_id')
             ->notEmptyString('album_id');
 
+        $validator
+        ->scalar('photo')
+        ->maxLength('photo', '255')
+        ->requirePresence('photo', 'create')
+        ->allowEmptyString('photo');
+
         return $validator;
     }
 
